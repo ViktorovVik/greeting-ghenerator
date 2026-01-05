@@ -7,13 +7,13 @@ import AppTitle from "./components/AppTitle.tsx";
 import OccasionButton from "./components/OccasionButton.tsx";
 import { Cake } from "lucide-react";
 import { Snowflake } from "lucide-react";
-
+import UserDetailsSection from "./components/UserDetailsSection.tsx";
 
 const App = () => {
   const [occasion, setOccasion] = useState<OccasionType>(OccasionType.BIRTHDAY);
   const [name, setName] = useState<string>("");
   const [age, setAge] = useState<string>("");
-  const [interests, setInterest] = useState<string>("");
+  const [interests, setInterests] = useState<string>("");
   // const [tone, setTone] = useState<ToneType>(ToneType.FRIENDLY);
   const [language, setLanguage] = useState<LanguageType>("Русский");
 
@@ -43,7 +43,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-[#FAF5FF]">
       <Header />
-
+      {error}
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto">
           <AppTitle />
@@ -76,41 +76,20 @@ const App = () => {
                   />
                 </div>
               </section>
+              <UserDetailsSection
+                name={name}
+                age={age}
+                error={error}
+                interest={interests}
+                setName={setName}
+                setAge={setAge}
+                setError={setError}
+                setInterests={setInterests}
+              />
             </div>
             <div className="lg:col-span-7 h-full">2</div>
           </div>
 
-          <br />
-          <label htmlFor="name"></label>
-          <input
-            onChange={(e) => setName(e.target.value)}
-            className=""
-            id="name"
-            name=""
-            type="text"
-            value={name}
-            placeholder="Витя"
-          />
-          <br />
-          <label htmlFor="name"></label>
-          <input
-            onChange={(e) => setAge(e.target.value)}
-            className=""
-            id="name"
-            name=""
-            type="text"
-            value={age}
-            placeholder="27"
-          />
-          <br />
-          <textarea
-            name=""
-            id=""
-            rows={2}
-            placeholder="Путешествия, кодинг, котики"
-            onChange={(e) => setInterest(e.target.value)}
-            value={interests}
-          ></textarea>
           <br />
           {/*{Object.values(ToneType).map((tone) => (*/}
           {/*  <button key={tone} type="button" onClick={() => setTone(tone)}>*/}
