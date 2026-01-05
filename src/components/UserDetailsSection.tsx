@@ -33,7 +33,7 @@ const UserDetailsSection: FC<IUserDetailsSectionProps> = ({
         </span>
         Выберите праздник
       </h3>
-      <div className="grid grid-cols-3gap-4">
+      <div className="grid grid-cols-3 gap-4">
         <div className="col-span-2 relative group">
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1 ml01">
             Имя *
